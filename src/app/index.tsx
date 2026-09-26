@@ -38,7 +38,7 @@ export default function LoginScreen() {
                 ) =>
                     handleLogin({
                         username,
-                        password
+                        password 
                     })
                 }
                 loading={loading}
