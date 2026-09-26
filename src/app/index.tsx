@@ -4,9 +4,9 @@ import {
 } from "react-native";
 
 import { useRouter } from "expo-router";
-
 import LoginForm from "../components/LoginForm";
 import { useLogin } from "../hooks/useLogin";
+import { LoginRequest } from "../interfaces/auth.interface";
 
 export default function LoginScreen() {
     const router = useRouter();
@@ -17,13 +17,11 @@ export default function LoginScreen() {
     } = useLogin();
 
     const handleLogin = async (
-        username: string,
-        password: string
+        data: LoginRequest
     ) => {
 
         const success = await login(
-            username,
-            password
+            data
         );
 
         if (success) {
@@ -34,7 +32,15 @@ export default function LoginScreen() {
     return (
         <View style={styles.container}>
             <LoginForm
-                onLogin={handleLogin}
+                 onLogin={(
+                    username,
+                    password
+                ) =>
+                    handleLogin({
+                        username,
+                        password
+                    })
+                }
                 loading={loading}
                 error={error}
             />

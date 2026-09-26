@@ -1,30 +1,29 @@
-import { LOGIN_CREDENTIALS } from "@/constants/auth";
+import { loginService } from "@/services/auth.service";
 import { useState } from "react";
+import { LoginRequest } from "../interfaces/auth.interface";
 
 export const useLogin = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     const login =  async (
-        username: string,
-        password: string
-    ) => {
-        setLoading(true);
-        setError("");
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        const isValid =
-            username === LOGIN_CREDENTIALS.username &&
-            password === LOGIN_CREDENTIALS.password;
-
-        if (isValid) {
-            setLoading(false);
+      data: LoginRequest
+    ): Promise<boolean> => {
+        try {
+            setLoading(true);
+            setError("");
+             const response = await loginService(data);
+             if(!response.success){
+                setError(response.message);
+                return false;
+             }
             return true;
+        } catch (error) {
+            setError("Ocurrio un error al inicio de sesión")
+            return false;            
+        } finally {
+            setLoading(false);
         }
-
-        setError("Usuario o contraseña incorrectos");
-        setLoading(false);
-        return false;
     };
     
     return {
