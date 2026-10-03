@@ -5,16 +5,12 @@ export default function RootLayout() {
         <Stack>
             <Stack.Screen
                 name="index"
-                options={{
-                    headerShown: false
-                }}
+                options={{ headerShown: false }}
             />
 
             <Stack.Screen
                 name="home"
-                options={{
-                    title: "Inicio"
-                }}
+                options={{ headerShown: false }}
             />
         </Stack>
     );
