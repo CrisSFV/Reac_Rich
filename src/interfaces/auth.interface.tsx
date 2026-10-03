@@ -1,5 +1,5 @@
 export interface LoginRequest {
-    username: string;
+    email: string;
     password: string;
 }
 // data que se envia para iniciar la sesion 
@@ -13,7 +13,7 @@ export interface LoginResponse {
 
 export interface LoginFormProps {
     onLogin: (
-        username: string,
+        email: string,
         password: string
     ) => void;
     loading: boolean;

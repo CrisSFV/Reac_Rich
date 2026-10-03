@@ -1,6 +1,6 @@
 import {
-  StyleSheet,
-  View
+    StyleSheet,
+    View
 } from "react-native";
 
 import { useRouter } from "expo-router";
@@ -33,11 +33,11 @@ export default function LoginScreen() {
         <View style={styles.container}>
             <LoginForm
                  onLogin={(
-                    username,
+                    email,
                     password
                 ) =>
                     handleLogin({
-                        username,
+                        email,
                         password 
                     })
                 }

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Button,StyleSheet,Text, TextInput, View } from "react-native";
 import { LoginFormProps } from "@/interfaces/auth.interface";
+import { useState } from "react";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 
 
@@ -9,11 +9,11 @@ export default function LoginForm({
     loading,
     error
 }: LoginFormProps) {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleLogin = () => {
-        onLogin(username, password);
+        onLogin(email, password);
     };
 
     return (
@@ -26,8 +26,8 @@ export default function LoginForm({
             <TextInput
                 style={styles.input}
                 placeholder="Usuario"
-                value={username}
-                onChangeText={setUsername}
+                value={email}
+                onChangeText={setEmail}
                 autoCapitalize="none"
             />
 
