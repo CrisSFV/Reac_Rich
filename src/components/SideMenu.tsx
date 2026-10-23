@@ -9,7 +9,7 @@ export default function SideMenu({
     if (!visible) {
         return null;
     }
-    <View style={styles.overlay}>
+    return <View style={styles.overlay}>
         <View style={styles.menu}>
             <View style={styles.userContainer}>
                     <View style={styles.avatar}>

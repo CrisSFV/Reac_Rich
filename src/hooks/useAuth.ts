@@ -44,6 +44,8 @@ export const useAuth = (): UseAuthReturn => {
   }, []);
 
   useEffect(() => {
+    // La comprobación es asíncrona y sincroniza la sesión persistida al montar el hook.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     checkAuth();
   }, [checkAuth]);
 

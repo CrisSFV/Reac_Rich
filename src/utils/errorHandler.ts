@@ -1,8 +1,8 @@
-import axios, { AxiosError } from 'axios';
+import { isAxiosError, type AxiosError } from 'axios';
 import { ApiError, ErrorType } from '../types/errors';
 
 export const handleApiError = (error: unknown): ApiError => {
-  if (axios.isAxiosError(error)) {
+  if (isAxiosError(error)) {
     const axiosError = error as AxiosError<any>;
     
     // Error de red (sin conexión)

@@ -18,7 +18,7 @@ export const useLogin = () => {
                 return false;
              }
             return true;
-        } catch (error) {
+        } catch {
             setError("Ocurrio un error al inicio de sesión")
             return false;            
         } finally {

@@ -30,7 +30,7 @@ export default function LoginScreen() {
     const success = await login({ email, password });
     
     if (success) {
-      router.replace('/(tabs)');
+      router.replace('/home');
     }
   };
 
